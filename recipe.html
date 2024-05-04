@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    
+    <style media="screen">
+      *,
+      *:before,
+      *:after {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+      }
+      body {
+          background-color: #080710;
+          font-family: 'Poppins', sans-serif;
+          color: #ffffff;
+      }
+      .container {
+          padding: 2px;
+      }
+      .mt-5 {
+          margin-top: 3rem !important;
+      }
+      .footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          background-color: #212529;
+          color: #ffffff;
+          text-align: center;
+          padding: 10px 0;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">STORE2GO</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./nav/login.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./nav/signup.html">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./nav/contant.html">Contact</a>
+              </li>
+              <!-- Cart section in the navbar -->
+              <li class="nav-item ml-auto">
+                <a class="nav-link" href="cart.html" id="cartLink">Cart</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <h1 style="text-align: center;">Order Recipe</h1>
+    <br>
+    <br>
+    <div id="orderReceipt" class="container">
+        <!-- Order receipt will be populated here -->
+    </div>
+    
+    <footer class="footer mt-5">
+        <div class="container">
+          <span class="text-muted">STORE2GO &copy; 2024. All rights reserved. | <a href="./nav/contant.html">Contact Us</a></span>
+        </div>
+      </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Retrieve order details from session storage
+            var orderDetails = JSON.parse(localStorage.getItem('orderDetails')) || {};
+            var deliveryAddress = orderDetails.deliveryAddress || '';
+            var pinCode = orderDetails.pinCode || '';
+            var mobileNumber = orderDetails.mobileNumber || '';
+            var customerName = orderDetails.fullName || '';
+            var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            var paymentMethod = sessionStorage.getItem('paymentMethod') || '';
+
+            // Function to calculate total price
+            function calculateTotalPrice() {
+                var totalPrice = 0;
+                // Calculate total price of all items in the cart
+                cartItems.forEach(function(item) {
+                    totalPrice += item.price;
+                });
+                return totalPrice;
+            }
+
+            // Function to generate order receipt HTML
+            function generateReceiptHtml() {
+                var totalPrice = calculateTotalPrice();
+                var orderItemsHtml = '';
+
+                // Generate HTML for each item in the cart
+                cartItems.forEach(function(item) {
+                    orderItemsHtml += `
+                        <div class="row mb-2">
+                            <div class="col">${item.name}</div>
+                            <div class="col">$${item.price.toFixed(2)}</div>
+                        </div>
+                    `;
+                });
+
+                // Generate HTML for order receipt
+                var receiptHtml = `
+                    <h4>Customer Details</h4>
+                    <p><strong>Full Name:</strong> ${customerName}</p>
+                    <hr>
+                    <h4>Billing Details</h4>
+                    <p><strong>Delivery Address:</strong> ${deliveryAddress}</p>
+                    <p><strong>Pin Code:</strong> ${pinCode}</p>
+                    <p><strong>Mobile Number:</strong> ${mobileNumber}</p>
+                    <hr>
+                    <h4>Payment Method</h4>
+                    <p>${paymentMethod}</p>
+                    <hr>
+                    <h4>Order Details</h4>
+                    ${orderItemsHtml}
+                    <hr>
+                    <p><strong>Total Amount:</strong> $${totalPrice.toFixed(2)}</p>
+                `;
+                return receiptHtml;
+            }
+
+            // Display order receipt
+            $('#orderReceipt').html(generateReceiptHtml());
+        });
+    </script>
+</body>
+</html>

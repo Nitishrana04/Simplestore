@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+      
+    <style media="screen">
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #080710;
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 5px;
+        }
+        .product-images {
+            width: 40%;
+            padding-right: 20px;
+        }
+        .product-details {
+            width: 60%;
+        }
+        .product-details h2 {
+            margin-bottom: 20px;
+        }
+        .product-details img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .product-details p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">STORE2GO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./nav/login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./nav/signup.html">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./nav/contant.html">Contact</a>
+                    </li>
+                    <!-- Cart section in the navbar -->
+                    <li class="nav-item ml-auto">
+                        <a class="nav-link" href="cart.html" id="cartLink">Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="product-images" id="productImagesSlider">
+            <!-- Product images will be populated here -->
+        </div>
+        <div class="product-details" id="productDetailsContainer">
+            <!-- Product details will be populated here -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Retrieve selected mobile data from session storage
+            var selectedMobile = JSON.parse(sessionStorage.getItem('selectedMobile'));
+    
+            // Display the details of the selected mobile
+            if (selectedMobile) {
+                var productImagesContainer = $(".product-images");
+                var productDetailsContainer = $("#productDetailsContainer");
+                var imagesHtml = "";
+                $.each(selectedMobile.images, function(index, image) {
+                    imagesHtml += `<div><img src="${image}" alt="${selectedMobile.name}" style="max-width: 100%; margin-bottom: 10px;"></div>`;
+                });
+                productImagesContainer.html(imagesHtml);
+                
+    
+                // Initialize Slick Carousel for the product images
+                $('#productImagesSlider').slick({
+                    dots: false, // Set dots to false to remove the dots
+                    infinite: true,
+                    speed: 300,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000
+                });
+    
+                var detailsHtml = `
+                    <h2>${selectedMobile.name}</h2>
+                    <h1> ₹${selectedMobile.price.toFixed(2)}</h1> <p>Discount: ${selectedMobile.discount}</p>
+                    <p> <h3> Features </h3> ${selectedMobile.features}</p>
+                    <p> <h3>Description: </h3> ${selectedMobile.description}</p>
+                    
+                    
+                    <!-- Add any other details you want to display here -->
+                `;
+                productDetailsContainer.html(detailsHtml);
+            } else {
+                // Handle the case where no mobile is selected
+                productDetailsContainer.html("<p>No product selected.</p>");
+            }
+        });
+    </script>
+    
+</body>
+</html>

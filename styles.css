@@ -1,0 +1,126 @@
+/* Custom styles for the mobile store */
+
+
+/* Navbar */
+.navbar-brand {
+    font-weight: bold;
+  }
+  
+  /* Mobile cards */
+  .card {
+    border: 1px solid #ccc;
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  /* Modal */
+  .modal-content {
+    border-radius: 0;
+  }
+  
+  /* Carousel */
+  #mobileImagesCarousel .carousel-item img {
+    height: 300px;
+  }
+  
+  /* Mobile details */
+  #mobileDetailsModal .modal-body {
+    padding: 20px;
+  }
+  
+  #mobileDetailsModal .modal-title {
+    font-weight: bold;
+  }
+  
+  #mobileDetailsModal .btn {
+    margin-top: 10px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+  
+    #mobileDetailsModal .modal-lg {
+      max-width: 90%;
+    }
+  
+    #mobileImagesCarousel .carousel-item img {
+      height: 200px;
+    }
+  }
+  /* styles.css */
+
+/* Style for billing information container */
+#billingInfo {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for individual billing information items */
+  #billingInfo p {
+    margin: 5px 0;
+  }
+  
+  /* Style for caution message */
+  #caution {
+    color: #f00; /* Red color for caution message */
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for checkout button */
+  #checkoutButton {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 768px) {
+    #billingInfo {
+      font-size: 14px; /* Decrease font size for smaller screens */
+    }
+  }
+  
+  .cart-container {
+    max-width: 00px;
+    margin: 0 auto;
+    padding: 50px;
+}
+.cart-item {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 5px solid #ccc;
+    padding-bottom: 20px;
+}
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+.cart-item-details {
+    flex-grow: 1;
+}
+.cart-item-remove {
+    margin-top: auto;
+}
+#totalPrice {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+#orderButton {
+  margin-top: 20px;
+}
