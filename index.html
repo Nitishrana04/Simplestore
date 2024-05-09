@@ -55,22 +55,32 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="./index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./nav/login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./nav/signup.html">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./nav/contant.html">Contact</a>
-          </li>
-          <!-- Cart section in the navbar -->
-          <li class="nav-item ml-auto">
-            <a class="nav-link" href="cart.html" id="cartLink">Cart</a>
-          </li>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./nav/contant.html">Contact</a>
+            </li>
+            <!-- Cart section in the navbar -->
+            <li class="nav-item ml-auto">
+              <a class="nav-link" href="cart.html" id="cartLink">Cart</a>
+            </li>
+            <!-- User email section -->
+            <li class="nav-item" id="userEmailLi" style="display: none;">
+              <span id="userEmail" class="nav-link"></span>
+            </li>
+            <li class="nav-item" id="signInLi" style="display: none;">
+              <a class="nav-link" href="./login.html">Log In</a>
+            </li>
+            <li class="nav-item" id="signOutLi" style="display: none;">
+              <button id="signOutBtn" class="btn btn-outline-danger">Sign Out</button>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./nav/signup.html">Sign Up</a>
+            </li>
+          </ul>
+          
         </ul>
       </div>
     </div>
@@ -120,6 +130,51 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="scripts.js"></script>
   <script src="mobliedata.js"></script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js'
+    import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js'
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB03_K2sDWYo90761ZFAzjcqwJKWR7S5w0",
+      authDomain: "loginpage-b299a.firebaseapp.com",
+      projectId: "loginpage-b299a",
+      storageBucket: "loginpage-b299a.appspot.com",
+      messagingSenderId: "675343735743",
+      appId: "1:675343735743:web:3da0f6d12000f219365f0a"
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Function to display user's email
+    function displayUserEmail(user) {
+      const userEmailElement = document.getElementById("userEmail");
+      const signOutLiElement = document.getElementById("signOutLi");
+      if (user && user.email) {
+        userEmailElement.textContent = user.email;
+        signOutLiElement.style.display = "block";
+      } else {
+        userEmailElement.textContent = "";
+        signOutLiElement.style.display = "none";
+      }
+    }
+
+    // Check if user is logged in on page load
+    onAuthStateChanged(auth, (user) => {
+      displayUserEmail(user);
+    });
+
+    // Sign out function
+    document.getElementById("signOutBtn").addEventListener("click", function () {
+      signOut(auth).then(() => {
+        // Sign-out successful.
+        window.location.href = "./index.html"; // Redirect to login page after sign-out
+      }).catch((error) => {
+        // An error happened.
+        console.error(error);
+      });
+    });
+  </script>
 
 </body>
 

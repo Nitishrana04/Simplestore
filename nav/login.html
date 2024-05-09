@@ -60,6 +60,9 @@
       <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
     </div>
   </form>
+
+  <div id="userDisplayName"></div>
+
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js'
     import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js'
@@ -82,7 +85,20 @@
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           var user = userCredential.user;
-          window.location.href = "../index.html"; // Redirect to homepage after login
+          // Get user's display name (assuming it's set)
+          var displayName = user.displayName;
+          // Get the userDisplayName element
+          var userDisplayNameElement = document.getElementById("userDisplayName");
+          // Check if the element exists
+          if (userDisplayNameElement) {
+            // Set the text content if the element exists
+            userDisplayNameElement.textContent = "Welcome, " + displayName;
+          } else {
+            // Handle the case where the element does not exist
+            console.error("Element with id 'userDisplayName' not found.");
+          }
+          // Redirect to homepage after login
+          window.location.href = "../index.html";
         })
         .catch((error) => {
           var errorCode = error.code;

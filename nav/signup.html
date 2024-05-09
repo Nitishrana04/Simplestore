@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-  <!--Stylesheet-->
   <style media="screen">
     *,
     *:before,
@@ -172,8 +171,8 @@
   </div>
   <form>
     <h3>Sign Up</h3>
-    <label for="username">Full Name</label>
-    <input type="text" placeholder="Name" id="username">
+    <label for="username">Email</label>
+    <input type="email" placeholder="Email" id="username">
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password">
     <button>Sign Up</button>
@@ -182,6 +181,49 @@
       <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
     </div>
   </form>
+
+  <!-- Include Firebase JavaScript library -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"></script>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyB03_K2sDWYo90761ZFAzjcqwJKWR7S5w0",
+      authDomain: "loginpage-b299a.firebaseapp.com",
+      projectId: "loginpage-b299a",
+      storageBucket: "loginpage-b299a.appspot.com",
+      messagingSenderId: "675343735743",
+      appId: "1:675343735743:web:3da0f6d12000f219365f0a"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    
+    // Function to handle user signup
+    function signupUser(email, password) {
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // Signed up successfully
+          var user = userCredential.user;
+          alert("Sign up successful!");
+          // You can redirect the user to another page or perform any other action here
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          alert(errorMessage);
+        });
+    }
+
+    // Event listener for signup form submission
+    document.querySelector("form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var email = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      signupUser(email, password);
+    });
+  </script>
 </body>
 
 </html>
