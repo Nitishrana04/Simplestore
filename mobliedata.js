@@ -25,7 +25,7 @@ var mobiles = [
     },
     {
         name: "iPhone 13 Pro (Graphite, 256 GB) (6 GB RAM)",
-        price: 139900 ,
+        price: 139900,
         images: ["https://rukminim2.flixcart.com/image/416/416/ktketu80/mobile/3/e/o/iphone-13-pro-max-mll63hn-a-apple-original-imag6vpgwfgxdsj6.jpeg?q=70&crop=false", "https://example.com/image2.jpg"],
         features: "6 GB RAM | 256 GB ROM | 6.1 inch Super Retina XDR Display, 12MP + 12MP + 12MP | 12MP Front Camera",
         description: "Description of iPhone 13 Pro.",

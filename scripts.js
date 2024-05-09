@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // Sample data for mobiles
-    
+
 
     // Function to populate mobiles in the DOM
     function populateMobiles() {
         var mobilesContainer = $("#mobilesContainer");
-        mobiles.forEach(function(mobile) {
+        mobiles.forEach(function (mobile) {
             var cardHtml = `
                 <div class="col-md-3 mb-4">
                     <div class="card h-100">
@@ -27,7 +27,7 @@ $(document).ready(function() {
     populateMobiles();
 
     // Event handler for View Details button click
-    $(document).on('click', '.view-details', function() {
+    $(document).on('click', '.view-details', function () {
         var mobileData = $(this).data('mobile');
         // Store the selected mobile's data in session storage
         sessionStorage.setItem('selectedMobile', JSON.stringify(mobileData));
@@ -36,7 +36,7 @@ $(document).ready(function() {
     });
 
     // Event handler for Add to Cart button click
-    $(document).on('click', '.add-to-cart', function(e) {
+    $(document).on('click', '.add-to-cart', function (e) {
         e.preventDefault();
         var mobileData = $(this).data('mobile');
         var cart = JSON.parse(localStorage.getItem('cart')) || [];
