@@ -11,9 +11,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"></script>
-
 </head>
 
 <body>
@@ -63,7 +60,10 @@
       <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
     </div>
   </form>
-  <script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js'
+    import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js'
+
     const firebaseConfig = {
       apiKey: "AIzaSyB03_K2sDWYo90761ZFAzjcqwJKWR7S5w0",
       authDomain: "loginpage-b299a.firebaseapp.com",
@@ -74,11 +74,12 @@
     };
 
     // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
     // Function to handle user login
     function loginUser(email, password) {
-      firebase.auth().signInWithEmailAndPassword(email, password)
+      signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           var user = userCredential.user;
           window.location.href = "../index.html"; // Redirect to homepage after login
