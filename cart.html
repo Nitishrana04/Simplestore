@@ -1,98 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <style media="screen">
-      *,
-      *:before,
-      *:after {
-          padding: 0;
-          margin: 0;
-          box-sizing:content-box;
-      }
-      body {
-          
-          font-family: 'Poppins', sans-serif;
-         
-      }
-      .container {
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          padding: 2px;
-      }
-      .product-images {
-          width: 70%;
-          padding-right: 50px;
-      }
-      .product-details {
-          width: 50%;
-      }
-      .product-details h2 {
-          margin-bottom: 50px;
-      }
-      .product-details img {
-          max-width: 100%;
-          height: auto;
-          margin-bottom: 30px;
-      }
-      .product-details p {
-          margin-bottom: 20px;
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <style media="screen">
+    *,
+    *:before,
+    *:after {
+      padding: 0;
+      margin: 0;
+      box-sizing: content-box;
+    }
+
+    body {
+
+      font-family: 'Poppins', sans-serif;
+
+    }
+
+    .container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 2px;
+    }
+
+    .product-images {
+      width: 70%;
+      padding-right: 50px;
+    }
+
+    .product-details {
+      width: 50%;
+    }
+
+    .product-details h2 {
+      margin-bottom: 50px;
+    }
+
+    .product-details img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+    }
+
+    .product-details p {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand" href="#">STORE2GO</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="./index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./nav/login.html">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./nav/signup.html">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./nav/contant.html">Contact</a>
-              </li>
-              <!-- Cart section in the navbar -->
-              <li class="nav-item ml-auto">
-                <a class="nav-link" href="cart.html" id="cartLink">Cart</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <h2 style="position: absolute;">Cart</h2>
-    <div class="container mt-5">
-        
-        <div id="cartItemsContainer">
-            <!-- Cart items will be dynamically added here -->
-        </div>
-        <div id="totalPrice"></div>
-        <button id="placeOrderBtn" class="btn btn-primary mt-3">Place Order</button>
-    </div>
- 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="scripts.js"></script>
-    <script src="cart.js"></script>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">STORE2GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./nav/login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./nav/signup.html">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./nav/contant.html">Contact</a>
+          </li>
+          <!-- Cart section in the navbar -->
+          <li class="nav-item ml-auto">
+            <a class="nav-link" href="cart.html" id="cartLink">Cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <h2 style="position: absolute;">Cart</h2>
+  <div class="container mt-5">
+
+    <div id="cartItemsContainer">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+    <div id="totalPrice"></div>
+    <button id="placeOrderBtn" class="btn btn-primary mt-3">Place Order</button>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="scripts.js"></script>
+  <script src="cart.js"></script>
 
 </body>
+
 </html>

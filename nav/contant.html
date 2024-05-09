@@ -1,179 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Phones</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
-    
-        <style media="screen">
-      *,
-      *:before,
-      *:after {
-          padding: 0;
-          margin: 0;
-          box-sizing: border-box;
-      }
-      body {
-          background-color: #080710;
-          font-family: 'Poppins', sans-serif;
-          color: #ffffff;
-      }
-      .background {
-          width: 430px;
-          height: 520px;
-          position: absolute;
-          transform: translate(-50%, -50%);
-          left: 50%;
-          top: 50%;
-      }
-      .background .shape {
-          height: 200px;
-          width: 200px;
-          position: absolute;
-          border-radius: 50%;
-      }
-      .shape:first-child {
-          background: linear-gradient(#1845ad, #23a2f6);
-          left: -80px;
-          top: -80px;
-      }
-      .shape:last-child {
-          background: linear-gradient(to right, #ff512f, #f09819);
-          right: -30px;
-          bottom: -80px;
-      }
-      form {
-          height: 520px;
-          width: 400px;
-          background-color: rgba(255, 255, 255, 0.13);
-          position: absolute;
-          transform: translate(-50%, -50%);
-          top: 50%;
-          left: 50%;
-          border-radius: 10px;
-          backdrop-filter: blur(10px);
-          border: 2px solid rgba(255, 255, 255, 0.1);
-          box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-          padding: 50px 35px;
-      }
-      form h3 {
-          font-size: 32px;
-          font-weight: 500;
-          line-height: 42px;
-          text-align: center;
-          margin-bottom: 30px;
-      }
-      label {
-          font-size: 16px;
-          font-weight: 500;
-          display: block;
-          margin-bottom: 10px;
-      }
-      input {
-          height: 50px;
-          width: 100%;
-          background-color: rgba(255, 255, 255, 0.07);
-          border-radius: 3px;
-          padding: 0 10px;
-          margin-top: 8px;
-          font-size: 14px;
-          font-weight: 300;
-      }
-      ::placeholder {
-          color: #e5e5e5;
-      }
-      button {
-          margin-top: 50px;
-          width: 100%;
-          background-color: #ffffff;
-          color: #080710;
-          padding: 15px 0;
-          font-size: 18px;
-          font-weight: 600;
-          border-radius: 5px;
-          cursor: pointer;
-      }
-      .social {
-          margin-top: 30px;
-          display: flex;
-          justify-content: center;
-      }
-      .social div {
-          background-color: rgba(255, 255, 255, 0.27);
-          color: #eaf0fb;
-          text-align: center;
-          border-radius: 3px;
-          padding: 5px 20px;
-          margin-right: 15px;
-          transition: background-color 0.3s ease;
-      }
-      .social div:hover {
-          background-color: rgba(255, 255, 255, 0.47);
-      }
-      .social i {
-          margin-right: 4px;
-      }
-    </style>
-    
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand" href="#">STORE2GO</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="../index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./login.html">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./signup.html">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./contant.html">Contact</a>
-              </li>
-              <!-- Cart section in the navbar -->
-              <li class="nav-item ml-auto">
-                <a class="nav-link" href="../cart.html" id="cartLink">Cart</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div class="container">
-        <br>
-        <h1>Contact Us</h1>
-        <p>Thank you for visiting STORE2GO! We're here to assist you with any questions or concerns you may have. Please feel free to reach out to us using the information provided below. Our dedicated team is committed to providing you with the best possible service.</p>
-        <br>
-    
-        <h5>Email:</h5> <p>info@store2go.com</p>
-        
-        <br>
-        <br>
-        <h2>About STORE2GO:</h2>
-        <p>STORE2GO was established in 2024 by Nitish Rana as part of a college project. Our mission is to provide customers with high-quality mobile devices and accessories at competitive prices. We are dedicated to offering exceptional customer service and ensuring a seamless shopping experience for all our patrons.</p>
-        <br> 
-        <p>If you have any questions about our products, services, or policies, please don't hesitate to get in touch with us. Your satisfaction is our top priority, and we look forward to serving you!</p>
-    </div>
-<br> <br> 
-    <footer class="footer mt-5">
-        <div class="container">
-          <span class="text-muted">STORE2GO &copy; 2024. All rights reserved. | <a href="./nav/contant.html">Contact Us</a></span>
-        </div>
-      </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Phones</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style media="screen">
+    *,
+    *:before,
+    *:after {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #080710;
+      font-family: 'Poppins', sans-serif;
+      color: #ffffff;
+    }
+
+    .background {
+      width: 430px;
+      height: 520px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+    }
+
+    .background .shape {
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .shape:first-child {
+      background: linear-gradient(#1845ad, #23a2f6);
+      left: -80px;
+      top: -80px;
+    }
+
+    .shape:last-child {
+      background: linear-gradient(to right, #ff512f, #f09819);
+      right: -30px;
+      bottom: -80px;
+    }
+
+    form {
+      height: 520px;
+      width: 400px;
+      background-color: rgba(255, 255, 255, 0.13);
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+      padding: 50px 35px;
+    }
+
+    form h3 {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 42px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      height: 50px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.07);
+      border-radius: 3px;
+      padding: 0 10px;
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+    ::placeholder {
+      color: #e5e5e5;
+    }
+
+    button {
+      margin-top: 50px;
+      width: 100%;
+      background-color: #ffffff;
+      color: #080710;
+      padding: 15px 0;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .social {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .social div {
+      background-color: rgba(255, 255, 255, 0.27);
+      color: #eaf0fb;
+      text-align: center;
+      border-radius: 3px;
+      padding: 5px 20px;
+      margin-right: 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    .social div:hover {
+      background-color: rgba(255, 255, 255, 0.47);
+    }
+
+    .social i {
+      margin-right: 4px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">STORE2GO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./signup.html">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contant.html">Contact</a>
+          </li>
+          <!-- Cart section in the navbar -->
+          <li class="nav-item ml-auto">
+            <a class="nav-link" href="../cart.html" id="cartLink">Cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <br>
+    <h1>Contact Us</h1>
+    <p>Thank you for visiting STORE2GO! We're here to assist you with any questions or concerns you may have. Please
+      feel free to reach out to us using the information provided below. Our dedicated team is committed to providing
+      you with the best possible service.</p>
+    <br>
+
+    <h5>Email:</h5>
+    <p>info@store2go.com</p>
+
+    <br>
+    <br>
+    <h2>About STORE2GO:</h2>
+    <p>STORE2GO was established in 2024 by Nitish Rana as part of a college project. Our mission is to provide customers
+      with high-quality mobile devices and accessories at competitive prices. We are dedicated to offering exceptional
+      customer service and ensuring a seamless shopping experience for all our patrons.</p>
+    <br>
+    <p>If you have any questions about our products, services, or policies, please don't hesitate to get in touch with
+      us. Your satisfaction is our top priority, and we look forward to serving you!</p>
+  </div>
+  <br> <br>
+  <footer class="footer mt-5">
+    <div class="container">
+      <span class="text-muted">STORE2GO &copy; 2024. All rights reserved. | <a href="./nav/contant.html">Contact
+          Us</a></span>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

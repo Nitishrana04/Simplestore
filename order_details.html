@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    
+
     <style media="screen">
         *,
         *:before,
@@ -16,11 +17,13 @@
             margin: 0;
             box-sizing: border-box;
         }
+
         body {
             background-color: #080710;
             font-family: 'Poppins', sans-serif;
             color: #ffffff;
         }
+
         .background {
             width: 430px;
             height: 520px;
@@ -29,18 +32,20 @@
             left: 50%;
             top: 50%;
         }
+
         .background .shape {
             height: 200px;
             width: 200px;
             position: absolute;
             border-radius: 50%;
         }
+
         .shape:first-child {
             background: linear-gradient(#1845ad, #23a2f6);
             left: -80px;
             top: -80px;
         }
-        
+
         form {
             height: 600px;
             width: 450px;
@@ -55,6 +60,7 @@
             box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
             padding: 50px 35px;
         }
+
         form h3 {
             font-size: 32px;
             font-weight: 500;
@@ -62,12 +68,14 @@
             text-align: center;
             margin-bottom: 30px;
         }
+
         label {
             font-size: 10px;
             font-weight: 500;
             display: block;
             margin-bottom: 10px;
         }
+
         input {
             height: 50px;
             width: 100%;
@@ -78,9 +86,11 @@
             font-size: 14px;
             font-weight: 300;
         }
+
         ::placeholder {
             color: #e5e5e5;
         }
+
         button {
             margin-top: 45px;
             width: 100%;
@@ -92,11 +102,13 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .social {
             margin-top: 30px;
             display: flex;
             justify-content: center;
         }
+
         .social div {
             background-color: rgba(255, 255, 255, 0.27);
             color: #eaf0fb;
@@ -106,46 +118,50 @@
             margin-right: 15px;
             transition: background-color 0.3s ease;
         }
+
         .social div:hover {
             background-color: rgba(255, 255, 255, 0.47);
         }
+
         .social i {
             margin-right: 4px;
         }
-      </style>
+    </style>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand" href="#">STORE2GO</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="./index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./nav/login.html">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./nav/signup.html">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./nav/contant.html">Contact</a>
-              </li>
-              <!-- Cart section in the navbar -->
-              <li class="nav-item ml-auto">
-                <a class="nav-link" href="cart.html" id="cartLink">Cart</a>
-              </li>
-            </ul>
-          </div>
+            <a class="navbar-brand" href="#">STORE2GO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./nav/login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./nav/signup.html">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./nav/contant.html">Contact</a>
+                    </li>
+                    <!-- Cart section in the navbar -->
+                    <li class="nav-item ml-auto">
+                        <a class="nav-link" href="cart.html" id="cartLink">Cart</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
     <div class="container">
-        
+
         <form id="orderDetailsForm">
             <h2>Customer Details</h2>
             <div class="form-group">
@@ -189,4 +205,5 @@
     <!-- Include your JavaScript file -->
     <script src="order_details.js"></script>
 </body>
+
 </html>

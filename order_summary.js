@@ -1,16 +1,16 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var cart = JSON.parse(localStorage.getItem('cart')) || [];
     var orderDetails = JSON.parse(localStorage.getItem('orderDetails')) || {};
 
     function calculateItemTotalPrice(item) {
-        var itemTotalPrice = (item.price ) * (item.quantity || 1);
-        var  itemTotalPrice ;
-        return itemTotalPrice ;
+        var itemTotalPrice = (item.price) * (item.quantity || 1);
+        var itemTotalPrice;
+        return itemTotalPrice;
     }
 
     var totalPrice = 0;
     var cartItemsList = $('#cartItems');
-    cart.forEach(function(item) {
+    cart.forEach(function (item) {
         var itemTotalPrice = calculateItemTotalPrice(item);
         totalPrice += itemTotalPrice;
         cartItemsList.append('<li>' + item.name + ' (Qty: ' + (item.quantity || 1) + ') - ₹' + itemTotalPrice.toFixed(2) + '</li>');
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     $('#gst').text('₹' + gst.toFixed(2));
     $('#totalPrice').text('₹' + mobileTotalPrice.toFixed(2));
 
-    $('#paymentMethod').change(function() {
+    $('#paymentMethod').change(function () {
         var selectedMethod = $(this).val();
         if (selectedMethod === 'paytm') {
             $('#paytmDetails').show();
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    $('#payButton').click(function() {
+    $('#payButton').click(function () {
         var paymentMethod = $('#paymentMethod').val();
         var paymentDetails = '';
         if (paymentMethod === 'paytm') {
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log('Payment Method: ' + paymentMethod);
         console.log('Payment Details: ' + paymentDetails);
     });
-    $('#payButton').click(function() {
+    $('#payButton').click(function () {
         // Create the order
         var order = {
             fullName: orderDetails.fullName || '',
