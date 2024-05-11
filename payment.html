@@ -121,6 +121,62 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="scripts.js"></script>
   <script src="order_summary.js"></script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js'
+    import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js'
+    import {
+      getFirestore,
+      addDoc,
+      collection
+    } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB03_K2sDWYo90761ZFAzjcqwJKWR7S5w0",
+      authDomain: "loginpage-b299a.firebaseapp.com",
+      databaseURL: "https://loginpage-b299a-default-rtdb.firebaseio.com",
+      projectId: "loginpage-b299a",
+      storageBucket: "loginpage-b299a.appspot.com",
+      messagingSenderId: "675343735743",
+      appId: "1:675343735743:web:3da0f6d12000f219365f0a"
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    console.log("Firebase initialized", db);
+
+    var orderDetails = JSON.parse(localStorage.getItem("orderDetails")) || {};
+
+    $('#payButton').click(async function () {
+        // Create the order
+        var order = {
+          fullName: orderDetails.fullName || '',
+          deliveryAddress: orderDetails.deliveryAddress || '',
+          pinCode: orderDetails.pinCode || '',
+          mobileModel: orderDetails.mobileModel || '',
+          mobilePrice: orderDetails.mobilePrice || 0,
+          // totalPrice: mobileTotalPrice.toFixed(2)
+        };
+
+        try {
+          debugger;
+          const docRef = await addDoc(collection(db, "orders"), {
+            ...order
+          });
+
+          console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+          _
+          console.error("Error adding document: ", e);
+        }
+        // Save the order to localStorage or send it to server-side for processing
+        localStorage.setItem('order', JSON.stringify(order));
+
+        // Redirect to the recipe page
+        window.location.href = 'recipe.html';
+    });
+
+  </script>
 </body>
 
 </html>
