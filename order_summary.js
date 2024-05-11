@@ -42,35 +42,35 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    $('#payButton').click(function () {
-        var paymentMethod = $('#paymentMethod').val();
-        var paymentDetails = '';
-        if (paymentMethod === 'paytm') {
-            paymentDetails = 'Paytm Number: ' + $('#paytmNumber').val();
-        } else if (paymentMethod === 'upi') {
-            paymentDetails = 'UPI ID: ' + $('#upiId').val();
-        } else {
-            paymentDetails = 'Card Payment';
-        }
-        // Here you can perform further processing such as submitting payment details to a server-side endpoint
-        console.log('Payment Method: ' + paymentMethod);
-        console.log('Payment Details: ' + paymentDetails);
-    });
-    $('#payButton').click(function () {
-        // Create the order
-        var order = {
-            fullName: orderDetails.fullName || '',
-            deliveryAddress: orderDetails.deliveryAddress || '',
-            pinCode: orderDetails.pinCode || '',
-            mobileModel: orderDetails.mobileModel || '',
-            mobilePrice: orderDetails.mobilePrice || 0,
-            totalPrice: mobileTotalPrice.toFixed(2)
-        };
+    // $('#payButton').click(function () {
+    //     var paymentMethod = $('#paymentMethod').val();
+    //     var paymentDetails = '';
+    //     if (paymentMethod === 'paytm') {
+    //         paymentDetails = 'Paytm Number: ' + $('#paytmNumber').val();
+    //     } else if (paymentMethod === 'upi') {
+    //         paymentDetails = 'UPI ID: ' + $('#upiId').val();
+    //     } else {
+    //         paymentDetails = 'Card Payment';
+    //     }
+    //     // Here you can perform further processing such as submitting payment details to a server-side endpoint
+    //     console.log('Payment Method: ' + paymentMethod);
+    //     console.log('Payment Details: ' + paymentDetails);
+    // });
+    // $('#payButton').click(function () {
+    //     // Create the order
+    //     var order = {
+    //         fullName: orderDetails.fullName || '',
+    //         deliveryAddress: orderDetails.deliveryAddress || '',
+    //         pinCode: orderDetails.pinCode || '',
+    //         mobileModel: orderDetails.mobileModel || '',
+    //         mobilePrice: orderDetails.mobilePrice || 0,
+    //         totalPrice: mobileTotalPrice.toFixed(2)
+    //     };
 
-        // Save the order to localStorage or send it to server-side for processing
-        localStorage.setItem('order', JSON.stringify(order));
+    //     // Save the order to localStorage or send it to server-side for processing
+    //     localStorage.setItem('order', JSON.stringify(order));
 
-        // Redirect to the recipe page
-        window.location.href = 'recipe.html';
-    });
+    //     // Redirect to the recipe page
+    //     window.location.href = 'recipe.html';
+    // });
 });
