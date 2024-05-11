@@ -9,221 +9,71 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-  <style media="screen">
-    *,
-    *:before,
-    *:after {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #080710;
-      font-family: 'Poppins', sans-serif;
-      color: #ffffff;
-    }
-
-    .background {
-      width: 430px;
-      height: 520px;
-      position: absolute;
-      transform: translate(-50%, -50%);
-      left: 50%;
-      top: 50%;
-    }
-
-    .background .shape {
-      height: 200px;
-      width: 200px;
-      position: absolute;
-      border-radius: 50%;
-    }
-
-    .shape:first-child {
-      background: linear-gradient(#1845ad, #23a2f6);
-      left: -80px;
-      top: -80px;
-    }
-
-    .shape:last-child {
-      background: linear-gradient(to right, #ff512f, #f09819);
-      right: -30px;
-      bottom: -80px;
-    }
-
-    form {
-      height: 520px;
-      width: 400px;
-      background-color: rgba(255, 255, 255, 0.13);
-      position: absolute;
-      transform: translate(-50%, -50%);
-      top: 50%;
-      left: 50%;
-      border-radius: 10px;
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-      padding: 50px 35px;
-    }
-
-    form h3 {
-      font-size: 32px;
-      font-weight: 500;
-      line-height: 42px;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    label {
-      font-size: 16px;
-      font-weight: 500;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    input {
-      height: 50px;
-      width: 100%;
-      background-color: rgba(255, 255, 255, 0.07);
-      border-radius: 3px;
-      padding: 0 10px;
-      margin-top: 8px;
-      font-size: 14px;
-      font-weight: 300;
-    }
-
-    ::placeholder {
-      color: #e5e5e5;
-    }
-
-    button {
-      margin-top: 50px;
-      width: 100%;
-      background-color: #ffffff;
-      color: #080710;
-      padding: 15px 0;
-      font-size: 18px;
-      font-weight: 600;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .social {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .social div {
-      background-color: rgba(255, 255, 255, 0.27);
-      color: #eaf0fb;
-      text-align: center;
-      border-radius: 3px;
-      padding: 5px 20px;
-      margin-right: 15px;
-      transition: background-color 0.3s ease;
-    }
-
-    .social div:hover {
-      background-color: rgba(255, 255, 255, 0.47);
-    }
-
-    .social i {
-      margin-right: 4px;
-    }
+ 
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">STORE2GO</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./signup.html">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./contant.html">Contact</a>
-          </li>
-          <!-- Cart section in the navbar -->
-          <li class="nav-item ml-auto">
-            <a class="nav-link" href="../cart.html" id="cartLink">Cart</a>
-          </li>
-        </ul>
-      </div>
+  <!-- Sign Up Form -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            
+            <form id="signupForm">
+              <h3 class="text-center mb-4">Sign Up</h3>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                
+            </form>
+        </div>
     </div>
-  </nav>
-  <div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
-  <form>
-    <h3>Sign Up</h3>
-    <label for="username">Email</label>
-    <input type="email" placeholder="Email" id="username">
-    <label for="password">Password</label>
-    <input type="password" placeholder="Password" id="password">
-    <button>Sign Up</button>
-    <div class="social">
-      <div class="go"><i class="fab fa-google"></i> Google</div>
-      <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
-    </div>
-  </form>
+</div>
 
-  <!-- Include Firebase JavaScript library -->
-  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"></script>
-
-  <script>
-    // Firebase configuration
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js';
+    import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js';
+  
     const firebaseConfig = {
-      apiKey: "AIzaSyB03_K2sDWYo90761ZFAzjcqwJKWR7S5w0",
-      authDomain: "loginpage-b299a.firebaseapp.com",
-      projectId: "loginpage-b299a",
-      storageBucket: "loginpage-b299a.appspot.com",
-      messagingSenderId: "675343735743",
-      appId: "1:675343735743:web:3da0f6d12000f219365f0a"
-    };
-
+  apiKey: "AIzaSyB03_K2sDWYo90761ZFAzjcqwJKWR7S5w0",
+  authDomain: "loginpage-b299a.firebaseapp.com",
+  databaseURL: "https://loginpage-b299a-default-rtdb.firebaseio.com",
+  projectId: "loginpage-b299a",
+  storageBucket: "loginpage-b299a.appspot.com",
+  messagingSenderId: "675343735743",
+  appId: "1:675343735743:web:3da0f6d12000f219365f0a"
+};
+  
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    
-    // Function to handle user signup
-    function signupUser(email, password) {
-      firebase.auth().createUserWithEmailAndPassword(email, password)
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+  
+    // Sign Up Form Submission
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // Signed up successfully
-          var user = userCredential.user;
-          alert("Sign up successful!");
-          // You can redirect the user to another page or perform any other action here
+          // Redirect to index page after successful signup
+          alert("Registration successful! You can now log in.");
+          window.location.href = "./login.html";
         })
         .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          alert(errorMessage);
+          console.error(error.code, error.message);
+          alert("Error: " + error.message);
         });
-    }
-
-    // Event listener for signup form submission
-    document.querySelector("form").addEventListener("submit", function(event) {
-      event.preventDefault();
-      var email = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-      signupUser(email, password);
     });
   </script>
+  
+  
+
 </body>
 
 </html>
