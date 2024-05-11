@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - STORE2GO</title>
-  <link rel="stylesheet" href="./login.css">
   <link rel="stylesheet" href="./styles.css">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -14,40 +13,11 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">STORE2GO</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./signup.html">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./contant.html">Contact</a>
-          </li>
-          <!-- Cart section in the navbar -->
-          <li class="nav-item ml-auto">
-            <a class="nav-link" href="../cart.html" id="cartLink">Cart</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
   <div class="background">
     <div class="shape"></div>
     <div class="shape"></div>
   </div>
+
   <form>
     <h3>Login Here</h3>
     <label for="username">Username</label>
@@ -55,26 +25,29 @@
     <label for="password">Password</label>
     <input type="password" placeholder="Password" id="password">
     <button id="loginBtn">Log In</button>
+    
     <div class="social">
-      <div class="go"><i class="fab fa-google"></i> Google</div>
-      <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+      
     </div>
   </form>
+
+  <div id="userEmailDisplay"></div>
+
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js'
     import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js'
 
     const firebaseConfig = {
-      apiKey: "AIzaSyB03_K2sDWYo90761ZFAzjcqwJKWR7S5w0",
-      authDomain: "loginpage-b299a.firebaseapp.com",
-      projectId: "loginpage-b299a",
-      storageBucket: "loginpage-b299a.appspot.com",
-      messagingSenderId: "675343735743",
-      appId: "1:675343735743:web:3da0f6d12000f219365f0a"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+  apiKey: "AIzaSyB03_K2sDWYo90761ZFAzjcqwJKWR7S5w0",
+  authDomain: "loginpage-b299a.firebaseapp.com",
+  databaseURL: "https://loginpage-b299a-default-rtdb.firebaseio.com",
+  projectId: "loginpage-b299a",
+  storageBucket: "loginpage-b299a.appspot.com",
+  messagingSenderId: "675343735743",
+  appId: "1:675343735743:web:3da0f6d12000f219365f0a"
+};
+   // Initialize Firebase
+   const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
     // Function to handle user login
@@ -82,7 +55,20 @@
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           var user = userCredential.user;
-          window.location.href = "../index.html"; // Redirect to homepage after login
+          // Get user's email
+          var email = user.email;
+          // Get the userEmailDisplay element
+          var userEmailDisplayElement = document.getElementById("userEmailDisplay");
+          // Check if the element exists
+          if (userEmailDisplayElement) {
+            // Set the text content if the element exists
+            userEmailDisplayElement.textContent = "Welcome, " + email;
+          } else {
+            // Handle the case where the element does not exist
+            console.error("Element with id 'userEmailDisplay' not found.");
+          }
+          // Redirect to homepage after login
+          window.location.href = "../index.html";
         })
         .catch((error) => {
           var errorCode = error.code;
@@ -99,6 +85,7 @@
       loginUser(email, password);
     });
   </script>
+
 </body>
 
 </html>
